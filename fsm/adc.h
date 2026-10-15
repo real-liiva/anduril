@@ -36,7 +36,7 @@ volatile uint8_t adc_reset = 2;
 
 // low-battery threshold in volts * 50
 #ifndef VOLTAGE_LOW
-#define VOLTAGE_LOW  Vto8(290)
+#define VOLTAGE_LOW  Vto8(270)
 #endif
 // battery is low but not critical
 #ifndef VOLTAGE_RED
