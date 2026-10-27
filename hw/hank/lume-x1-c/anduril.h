@@ -8,6 +8,7 @@
 // - Same firmware for 6V, 9V, or 12V configs
 
 #define HWDEF_H  hank/lume-x1-c/hwdef.h
+#define USE_AW2016
 #include "hank/anduril.h"
 
 
@@ -50,7 +51,7 @@
 #define DEFAULT_LEVEL  50
 #define MAX_1x7135     49
 
-#define RAMP_SMOOTH_FLOOR    1
+#define RAMP_SMOOTH_FLOOR    4    // raised at Hank's request
 #define RAMP_SMOOTH_CEIL     130
 
 #define RAMP_DISCRETE_FLOOR  10
