@@ -137,6 +137,16 @@
 
 // enable the battery check mode (shows remaining charge) (requires USE_LVP)
 #define USE_BATTCHECK_MODE
+
+// low-battery threshold in volts * 50
+#ifndef VOLTAGE_LOW
+#define VOLTAGE_LOW  Vto8(270)
+#endif
+// battery is low but not critical
+#ifndef VOLTAGE_RED
+#define VOLTAGE_RED  Vto8(330)
+#endif
+
 // battery readout style (pick one)
 // TODO: allow VpT and 4-bar simultaneously,
 //       so one can be in "simple mode" and the other in "advanced mode"

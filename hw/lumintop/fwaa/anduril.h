@@ -39,11 +39,12 @@
 
 // enable extra features
 #define USE_SMOOTH_STEPS
+#define USE_SMOOTH_BEACON
 
 // can't reset the normal way because power is connected before the button
 #define USE_SOFT_FACTORY_RESET
 
 // too big, turn off extra features
-//#undef USE_TACTICAL_MODE
-#undef USE_SOS_MODE
+#undef USE_TACTICAL_MODE
+//#undef USE_SOS_MODE
 
