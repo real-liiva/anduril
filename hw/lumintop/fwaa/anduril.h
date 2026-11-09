@@ -45,6 +45,7 @@
 #define USE_SOFT_FACTORY_RESET
 
 // too big, turn off extra features
-#undef USE_TACTICAL_MODE
+#define USE_MINIMAL_VERSION_CHECK
+//#undef USE_TACTICAL_MODE
 //#undef USE_SOS_MODE
 

@@ -12,6 +12,7 @@ uint8_t version_check_state(Event event, uint16_t arg) {
 }
 
 // this happens in FSM loop()
+#ifndef USE_MINIMAL_VERSION_CHECK
 inline void version_check_iter() {
     for (uint8_t i=0; i<sizeof(version_number)-1; i++) {
         uint8_t digit = pgm_read_byte(version_number + i) - '0';
@@ -31,4 +32,15 @@ inline void version_check_iter() {
 
     set_state_deferred(off_state, 0);
 }
-
+#else
+inline void version_check_iter() {
+    for (uint8_t i=0; i<sizeof(version_number)-1; i++) {
+        uint8_t digit = pgm_read_byte(version_number + i) - '0';
+        //       digits: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+        //   hex digits: 0 1 2 3 4 5 6 7 8 9  a  b  c  d  e  f
+        // 'model' file: 0 1 2 3 4 5 6 7 8 9  :  ;  <  =  >  ?
+        if (digit < 16) blink_digit(digit);
+    }
+    set_state_deferred(off_state, 0);
+}
+#endif

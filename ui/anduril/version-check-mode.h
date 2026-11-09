@@ -13,7 +13,11 @@
 #endif
 
 #include "anduril/version.h"
+#ifndef USE_MINIMAL_VERSION_CHECK
 const PROGMEM uint8_t version_number[] = MODEL_NUMBER "." VERSION_NUMBER;
+#else
+const PROGMEM uint8_t version_number[] = MODEL_NUMBER;
+#endif
 uint8_t version_check_state(Event event, uint16_t arg);
 inline void version_check_iter();
 
