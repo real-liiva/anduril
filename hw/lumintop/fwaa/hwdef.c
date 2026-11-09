@@ -25,7 +25,7 @@ void set_level_zero() {
 uint8_t PWM_GET_NEW(const PWM_DATATYPE* channel, uint8_t level){
     if (channel==pwm1_levels)
     {
-        if (level>=MAX_1x7135-1) return 255*(level!=255);
+        if (level>=MAX_1x7135-1) return 255*(level!=RAMP_SIZE);
     }
     return pgm_read_byte(channel+level);
 }
