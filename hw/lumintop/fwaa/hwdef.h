@@ -26,15 +26,14 @@ enum channel_modes_e {
 // right-most bit first, modes are in fedcba9876543210 order
 #define CHANNEL_MODES_ENABLED  0b00000001
 
-
-#define PWM_CHANNELS 2  // old, remove this
-
-#define PWM_BITS      8       // attiny85 only supports up to 8 bits
-#define PWM_GET       PWM_GET8
 #define PWM_DATATYPE  uint8_t
 #define PWM_DATATYPE2 uint16_t
 #define PWM1_DATATYPE uint8_t   // 1x7135 ramp
 #define PWM2_DATATYPE uint8_t   // DD FET ramp
+#define PWM_CHANNELS 2  // old, remove this
+uint8_t PWM_GET_NEW(const PWM_DATATYPE* channel, uint8_t level);
+#define PWM_BITS      8       // attiny85 only supports up to 8 bits
+#define PWM_GET       PWM_GET_NEW
 
 #define PWM_TOP_INIT  255    // highest value used in top half of ramp
 

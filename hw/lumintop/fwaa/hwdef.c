@@ -22,6 +22,14 @@ void set_level_zero() {
     CH2_PWM = 0;
 }
 
+uint8_t PWM_GET_NEW(const PWM_DATATYPE* channel, uint8_t level){
+    if (channel==pwm1_levels)
+    {
+        if (level>=MAX_1x7135-1) return 255*(level!=255);
+    }
+    return pgm_read_byte(channel+level);
+}
+
 // TODO: implement delta-sigma modulation for better low modes
 
 // single set of LEDs with 2 stacked power channels, FET+1

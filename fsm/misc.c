@@ -129,8 +129,7 @@ uint8_t blink_num(uint8_t num) {
 #ifdef USE_TRIANGLE_WAVE
 uint8_t triangle_wave(uint8_t phase) {
     uint8_t result = phase << 1;
-    if (phase > 127) result = 255 - result;
-    return result;
+    return result*(phase <= 127)|(~result*(phase > 127));
 }
 #endif  // #ifdef USE_TRIANGLE_WAVE
 

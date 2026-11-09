@@ -101,13 +101,13 @@ inline void mcu_adc_off() {
 // left-adjusted mode:
 inline uint16_t mcu_adc_result() { return ADC; }
 
-inline uint8_t mcu_vdd_raw2cooked(uint16_t measurement) {
+inline uint8_t mcu_vdd_raw2cooked(const uint16_t measurement) {
     // In : 65535 * 1.1 / Vbat
     // Out: uint8_t: Vbat * 50
     // 1.1 = ADC Vref
-    // 1024 = how much ADC resolution we're using (10 bits)
-    // (12 bits available, but it costs an extra 84 bytes of ROM to calculate)
-    uint8_t vbat = (uint16_t)(10 * dV * 1.1 * 1024) / (measurement >> 6);
+    // 256 = how much ADC resolution we're using (8 bits)
+
+    uint8_t vbat = (uint16_t)(10 * dV * 1.1 * 256) / (uint8_t)(measurement>>8); //discard 8 LSB, saves 6 bytes lol
     return vbat;
 }
 
