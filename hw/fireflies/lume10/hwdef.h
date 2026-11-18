@@ -116,9 +116,9 @@ enum channel_modes_e {
 // DD FET
 #define FET_PORT  PORTA
 #define FET_PIN   PIN0_bp
-// DD FET with only 1 level needs special care in thermal regulation
-#define HWDEF_EV_TEMPERATURE_HIGH  hwdef_EV_temperature_high
-void hwdef_EV_temperature_high(int16_t howmuch);
+// // DD FET with only 1 level needs special care in thermal regulation
+// #define HWDEF_EV_TEMPERATURE_HIGH  hwdef_EV_temperature_high
+// void hwdef_EV_temperature_high(int16_t howmuch);
 
 
 // this light has RGB aux LEDs

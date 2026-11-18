@@ -78,8 +78,12 @@
 //**       THERMAL SETTINGS            **
 //***************************************
 
+// extra boost during turbo = temp_ceil + extra
+#define TURBO_TEMP_EXTRA 8  // Lume10 flashlights can handle the heat
 #define THERM_FASTER_LEVEL  100
-#define MIN_THERM_STEPDOWN  60
+#define MIN_THERM_STEPDOWN  71
+#define THERM_NEXT_WARNING_THRESHOLD 24 // 24 default -> increase for fewer adjustments (more stable output on large time scale)
+#define THERM_RESPONSE_MAGNITUDE 64     // 64 default -> decrease for smaller adjustments (removes dip post turbo)
 
 //***************************************
 //**       AUX LEDs and MISC           **

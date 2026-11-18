@@ -360,7 +360,24 @@ static void ADC_temperature_handler() {
 
             // send a warning
             #ifndef HWDEF_EV_TEMPERATURE_HIGH
+
+            // if TURBO_TEMP_EXTRA is defined, allow to run hotter in turbo until limit is hit
+            #ifdef TURBO_TEMP_EXTRA
+            // clamp to be maximum of 71C
+            int8_t th_max = TH_CEIL + TURBO_TEMP_EXTRA;
+            if (th_max > 71){th_max = 71;}
+
+            if ((temperature < th_max) && (actual_level >= RAMP_SIZE) ){
+                ; // take no action
+            } 
+            else{
+                emit(EV_temperature_high, howmuch);
+            }
+            #else
+            // send a warning
             emit(EV_temperature_high, howmuch);
+            #endif
+
             #else
             // in case the hwdef wants special thermal regulation behavior
             HWDEF_EV_TEMPERATURE_HIGH(howmuch);

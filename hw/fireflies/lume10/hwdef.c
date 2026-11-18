@@ -187,17 +187,17 @@ bool gradual_tick_hsv(uint8_t gt) {
     return gradual_adjust_auxrgb(color);
 }
 
-void hwdef_EV_temperature_high(int16_t howmuch) {
-    // the single-level DD FET turbo makes thermal regulation weird
-    // so override the thermal warning behavior a bit
-    if (actual_level >= RAMP_SIZE) {  // stepping down from turbo
-        // step down only 1 level
-        emit(EV_temperature_high, 1);
-        // reset temperature history to pause adjustments for a few seconds
-        // (temporarily removes predictions as a factor)
-        adc_reset = 1;
-    } else {  // already below turbo
-        emit(EV_temperature_high, howmuch);
-    }
-}
+// void hwdef_EV_temperature_high(int16_t howmuch) {
+//     // the single-level DD FET turbo makes thermal regulation weird
+//     // so override the thermal warning behavior a bit
+//     if (actual_level >= RAMP_SIZE) {  // stepping down from turbo
+//         // step down only 1 level
+//         emit(EV_temperature_high, 1);
+//         // reset temperature history to pause adjustments for a few seconds
+//         // (temporarily removes predictions as a factor)
+//         adc_reset = 1;
+//     } else {  // already below turbo
+//         emit(EV_temperature_high, howmuch);
+//     }
+// }
 
