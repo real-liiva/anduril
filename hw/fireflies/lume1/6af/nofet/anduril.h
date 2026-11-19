@@ -7,6 +7,9 @@
 #define NO_DDFET_TURBO
 #include "fireflies/lume1/6af/anduril.h"
 
+// no fet-mode for turbo
+#undef TURBO_TEMP_EXTRA
+#define TURBO_TEMP_EXTRA 0
 
 #undef PWM1_LEVELS
 #undef PWM2_LEVELS

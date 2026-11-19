@@ -23,9 +23,9 @@ volatile uint8_t adc_reset = 2;
 #endif
 
 #ifdef USE_LVP
-// default 5 seconds between low-voltage warning events
+// default 10 seconds between low-voltage warning events
 #ifndef VOLTAGE_WARNING_SECONDS
-#define VOLTAGE_WARNING_SECONDS 5
+#define VOLTAGE_WARNING_SECONDS 10
 #endif
 
 #ifdef DUAL_VOLTAGE_FLOOR

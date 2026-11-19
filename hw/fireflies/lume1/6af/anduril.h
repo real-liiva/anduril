@@ -86,8 +86,11 @@
 
 #define DEFAULT_THERM_CEIL 50
 
-#define THERM_FASTER_LEVEL  130
-#define MIN_THERM_STEPDOWN  70
+// extra boost during turbo, lower when temp = temp_ceil + extra
+#define TURBO_TEMP_EXTRA 10
+
+#define THERM_FASTER_LEVEL  125
+#define MIN_THERM_STEPDOWN  88
 
 // thermal tweaking by loneoceans, unsure if necessary
 //#define THERM_NEXT_WARNING_THRESHOLD 28 // 24 by default -> increase for fewer adjustments (more stable output on large time scale)

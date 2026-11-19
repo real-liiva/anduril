@@ -46,6 +46,8 @@
 #undef DEFAULT_THERM_CEIL
 #define DEFAULT_THERM_CEIL  50
 
+// a little extra boost for turbo
+#define TURBO_TEMP_EXTRA 5
 
 // AUX + channel modes
 
