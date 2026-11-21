@@ -10,6 +10,7 @@ Sofirn		0600 - 0699
 Wurkkos		0700 - 0799
 ...
 gChart		1600 - 1699	(also thefreeman, since he picked 163X)
+LCL (Liv's custom lights) 1700 - 1799 (may include numbers longer than 4 digits for individual slightly different one-off light configs)
 ...
 reserved	1900 - 2199	(to ensure no overlap between years and model numbers)
 				(assumes this project won't be relevant in the year 2200 or later)
