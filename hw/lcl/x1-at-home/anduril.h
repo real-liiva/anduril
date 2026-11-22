@@ -17,21 +17,21 @@
 
 #define RAMP_SIZE 150
 
-// top level for each "gear": 121 150
+// Contrast ratio on the s21e driver is ~2000:1
+// top level for each "gear": 120 150
 #define PWM1_LEVELS \
-           0,   0,   0,   1,   1,   1,   1,   1,   1,   2,   2,   2,   2,   2,   3,   3,   3,   4,   4,   5,   5,   5,   6,   6,   7,   8,   8,   9,  10,  11,  11,  12,  13,  14,  15,  17,  18,  19,  21,  22,  24,  25,  27,  29,  31,  33,  35,  37,  40,  42,  45,  48,  51,  54,  57,  60,  64,  68,  72,  76,  80,  84,  89,  94,  99, 104, 110, 115, 121, 128, 134, 141, 148, 155, 163, 171, 179, 188, 197, 206, 215, 225, 235, 246, 257, 269, 280, 293, 305, 319, 332, 346, 361, 376, 391, 407, 424, 441, 459, 477, 496, 515, 535, 556, 577, 599, 622, 645, 669, 694, 720, 746, 773, 801, 830, 859, 889, 921, 953, 986,1019, \
-         431, 446, 461, 476, 492, 509, 525, 543, 560, 578, 597, 616, 635, 655, 676, 697, 718, 741, 763, 786, 810, 835, 860, 885, 911, 938, 966, 994,1023
+           0,   0,   1,   1,   1,   1,   1,   2,   2,   2,   2,   3,   3,   3,   4,   4,   5,   5,   6,   6,   7,   7,   8,   9,   9,  10,  11,  12,  13,  14,  15,  16,  17,  18,  20,  21,  22,  24,  26,  27,  29,  31,  33,  35,  38,  40,  42,  45,  48,  51,  54,  57,  60,  63,  67,  71,  75,  79,  83,  88,  92,  97, 102, 107, 113, 119, 125, 131, 137, 144, 151, 158, 166, 173, 181, 190, 198, 207, 217, 226, 236, 247, 258, 269, 280, 292, 304, 317, 330, 344, 358, 372, 387, 403, 419, 435, 452, 469, 487, 506, 525, 545, 565, 586, 608, 630, 653, 676, 701, 726, 751, 778, 805, 833, 861, 891, 921, 952, 984,1017, \
+         430, 444, 458, 473, 488, 504, 520, 537, 554, 571, 589, 607, 626, 645, 665, 685, 705, 727, 748, 770, 793, 816, 840, 864, 889, 914, 941, 967, 995,1023
 #define PWM2_LEVELS \
-         V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, \
-         V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25
+         V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, V10, \
+         V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25, V25
+#define MAX_1x7135           120
 // RGB aux ramp
 // ./bin/level_calc.py 1.6 1 150 7135 2 0.01 60 --pwm 255
 #define PWM3_LEVELS \
         2,2,3,3,3,4,4,5,5,6,6,7,7,8,9,9,10,11,12,12,13,14,15,16,17,18,19,19,20,21,22,24,25,26,27,28,29,30,31,33,34,35,36,38,39,40,42,43,44,46,47,48,50,51,53,54,56,57,59,60,62,63,65,67,68,70,72,73,75,77,78,80,82,84,85,87,89,91,93,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,138,140,143,145,147,149,151,154,156,158,160,163,165,167,170,172,174,177,179,181,184,186,188,191,193,196,198,201,203,206,208,211,213,216,218,221,223,226,228,231,234,236,239,242,244,247,250,252,255
 
 #define DEFAULT_JUMP_START_LEVEL 16
-
-#define MAX_1x7135           121 //needs to change
 
 #define LED_PATH1_PIN_LEVEL_MIN   0
 #define LED_PATH2_PIN_LEVEL_MIN   0
@@ -47,12 +47,12 @@
 #define RAMP_SMOOTH_CEIL     150
 
 #define RAMP_DISCRETE_FLOOR  10
-#define RAMP_DISCRETE_CEIL   130
+#define RAMP_DISCRETE_CEIL   150
 #define RAMP_DISCRETE_STEPS  7
 
-// 10 35 [60] 85 110
+
 #define SIMPLE_UI_FLOOR      10
-#define SIMPLE_UI_CEIL       110      // about ~12W
+#define SIMPLE_UI_CEIL       120      
 #define SIMPLE_UI_STEPS      5
 
 // don't blink mid-ramp
@@ -65,8 +65,8 @@
 //***************************************
 
 // stop panicking at 6W (not sure of this numbers yet since it depends on the host..)
-#define THERM_FASTER_LEVEL  100  // about 6W
-#define MIN_THERM_STEPDOWN  60   // similar to single amc7135 in a 3V light
+#define THERM_FASTER_LEVEL  130  // about 6W
+#define MIN_THERM_STEPDOWN  100   // similar to single amc7135 in a 3V light
 
 //***************************************
 //**       AUX LEDs and MISC           **
@@ -83,12 +83,6 @@
 
 // blink numbers on the main LEDs by default (but allow user to change it)
 #define DEFAULT_BLINK_CHANNEL  CM_MAIN
-
-// use aux red + aux blue for police strobe
-#define USE_POLICE_COLOR_STROBE_MODE
-#define POLICE_STROBE_USES_AUX
-#define POLICE_COLOR_STROBE_CH1        CM_AUXRED
-#define POLICE_COLOR_STROBE_CH2        CM_AUXBLU
 
 
 // Misc

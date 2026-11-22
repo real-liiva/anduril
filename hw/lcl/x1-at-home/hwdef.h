@@ -4,9 +4,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
-/*  Loneoceans Lume-X1 with AVR32DD20
+/*  Simon's "we have Lume X1 at home"
 
-    40W Boost Driver with Ultra Dynamic Range, RGB & SW Aux, Powerbank.
+    Boost Driver with Some Dynamic Range, RGB Aux.
 
     The following pins are invariant (20 QFN package 3x3 0.4mm BSC)
     - PD6 / PP11 - DAC OUT
@@ -17,22 +17,13 @@
     - xx  / PP14 - GND
 
     Used Pins
-    - PA0 / PP17 - FET via PWM (TCA0-WO0) - N/C for Lume X1
-    - PA5 / PP2  - PATH3 - High Range
-    - PA6 / PP3  - PATH2 - Low Range
-    - PA7 / PP4  - PATH1 - Moon Range
     - PC1 / PP5  - Enable for Boost, Amplifier
-    - PC2 / PP6  - Enable for Microphone - N/C
-    - PC3 / PP7  - Neo Dat - N/C
     - PD4 / PP9  - E-Switch
-    - PD5 / PP10 - Mic Output - N/C
+    
     - PD6 / PP11 - DAC Out
-    - PD7 / PP12 - Power Bank - N/C
     - PA1 / PP18 - AUX R LED
     - PA2 / PP19 - AUX G LED
     - PA3 / PP20 - AUX B LED
-    - PA4 / PP1  - AUX SW LED
-
 */
 
 #define HWDEF_C  hank/lume-x1/hwdef.c
