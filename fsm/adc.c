@@ -242,11 +242,14 @@ static void ADC_voltage_handler() {
             lvp_timer = LVP_TIMER_START;
         }
     }
+    
+    #ifdef VOLTAGE_CRITICAL
     #ifndef DUAL_VOLTAGE_FLOOR // TODO: implement this for dual voltage lights, probably along with a dual voltage battery detection method that locks in what type the battery is at turn-on, to prevent anduril from being able to overdischarge a li-ion so low that it thinks it is a ni-mh and stops LVP
     if (voltage<VOLTAGE_CRITICAL && !adc_reset) //try to prevent catastrophic battery damage if user keeps overriding LVP
     {
-        emit(EV_voltage_low, 0);
+        emit(EV_emergency_shutdown, 0);
     }
+    #endif
     #endif
 }
 #endif
@@ -345,6 +348,11 @@ static void ADC_temperature_handler() {
             offset ++;
         }
     }
+
+    #ifdef THERM_CRITICAL
+    // About to catch fire?
+    if (temperature > THERM_CRITICAL) emit(EV_emergency_shutdown, 0);
+    #endif
 
     // Too hot?
     // (if it's too hot and not getting cooler...)

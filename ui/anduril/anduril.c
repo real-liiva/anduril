@@ -435,3 +435,9 @@ void low_voltage() {
 
 }
 
+#if defined(VOLTAGE_CRITICAL) || defined(THERM_CRITICAL)
+void emergency_shutdown() {
+    empty_event_sequence(); //hopefully gets around momentary turbo being able to stay on
+    set_state(off_state, 0);
+}
+#endif

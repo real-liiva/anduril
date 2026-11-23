@@ -83,6 +83,10 @@ void v16_force_update();
 void low_voltage();
 #endif
 
+#if defined(VOLTAGE_CRITICAL) || defined(THERM_CRITICAL)
+void emergency_shutdown();
+#endif
+
 #ifdef USE_BATTCHECK
 void battcheck();
 #ifdef BATTCHECK_VpT

@@ -101,6 +101,9 @@ void delay_4ms(uint8_t ms);
 #ifdef USE_LVP
 #define EV_voltage_low         (B_SYSTEM|0b00000100)
 #endif
+#if defined(VOLTAGE_CRITICAL) || defined(THERM_CRITICAL)
+#define EV_emergency_shutdown  (B_SYSTEM|0b00111111)
+#endif
 #ifdef USE_THERMAL_REGULATION
 #define EV_temperature_high    (B_SYSTEM|0b00000101)
 #define EV_temperature_low     (B_SYSTEM|0b00000110)

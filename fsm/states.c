@@ -83,6 +83,12 @@ uint8_t default_state(Event event, uint16_t arg) {
         return EVENT_HANDLED;
     }
     #endif
+    #if defined(VOLTAGE_CRITICAL) || defined(THERM_CRITICAL)
+    else if (event == EV_emergency_shutdown) {
+        emergency_shutdown();
+        return EVENT_HANDLED;
+    }
+    #endif
 
     #if 0
     #ifdef USE_THERMAL_REGULATION
