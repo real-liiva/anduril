@@ -142,6 +142,10 @@
 #ifndef VOLTAGE_LOW
 #define VOLTAGE_LOW  Vto8(270)
 #endif
+// critical emergency shutdown threshold in volts * 50, 2.0v, below which critical copper dissolution occurs
+#ifndef VOLTAGE_CRITICAL
+#define VOLTAGE_CRITICAL  Vto8(200)
+#endif
 // battery is low but not critical
 #ifndef VOLTAGE_RED
 #define VOLTAGE_RED  Vto8(330)

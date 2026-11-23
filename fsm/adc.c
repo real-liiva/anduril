@@ -230,7 +230,7 @@ static void ADC_voltage_handler() {
             ;
     #endif
 
-    // if low, callback EV_voltage_low / EV_voltage_critical
+    // if low, callback EV_voltage_low
     //         (but only if it has been more than N seconds since last call)
     if (lvp_timer) {
         lvp_timer --;
@@ -242,6 +242,12 @@ static void ADC_voltage_handler() {
             lvp_timer = LVP_TIMER_START;
         }
     }
+    #ifndef DUAL_VOLTAGE_FLOOR // TODO: implement this for dual voltage lights, probably along with a dual voltage battery detection method that locks in what type the battery is at turn-on, to prevent anduril from being able to overdischarge a li-ion so low that it thinks it is a ni-mh and stops LVP
+    if (voltage<VOLTAGE_CRITICAL && !adc_reset) //try to prevent catastrophic battery damage if user keeps overriding LVP
+    {
+        emit(EV_voltage_low, 0);
+    }
+    #endif
 }
 #endif
 
