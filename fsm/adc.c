@@ -351,7 +351,7 @@ static void ADC_temperature_handler() {
 
     #ifdef THERM_CRITICAL
     // About to catch fire?
-    if (temperature > THERM_CRITICAL) emit(EV_emergency_shutdown, 0);
+    if (temperature >= THERM_CRITICAL) emit(EV_emergency_shutdown, 0);
     #endif
 
     // Too hot?
